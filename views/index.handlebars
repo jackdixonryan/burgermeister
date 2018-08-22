@@ -1,0 +1,33 @@
+
+<h1>Uneaten</h1>
+<ul>
+    {{#each uneaten}}
+    <li>
+        <p>{{this.burger_name}}</p>
+        <form class='submit' data-bool='{{this.burger_name}}' >
+        <button class='eat' type = 'submit' data-bool='{{this.burger_name}}'>EAT ME</button>
+        </form>
+    </li>
+    {{/each}}
+</ul>
+
+<h1>Eaten</h1>
+<ul>
+    {{#each eaten}}
+    <li>{{this.burger_name}}</li>
+    {{/each}}
+</ul>
+
+<script>
+   $('.submit').on('submit', function(){
+       let bname = $(this).attr('data-bool');
+       $.ajax(
+           {
+            url: '/api/burgers', 
+            method: 'put',
+            data: {burgerName : bname}
+        }).done(function(msg){
+            console.log('DATA SAVED: ' + msg);
+        })
+    });
+</script>

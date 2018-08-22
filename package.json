@@ -1,0 +1,32 @@
+{
+  "name": "burgermeister",
+  "version": "1.0.0",
+  "description": "ORM powered SQL data.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackdixonryan/burgermeister.git"
+  },
+  "keywords": [
+    "ORM",
+    "mySQL",
+    "node",
+    "handlebars"
+  ],
+  "author": "Jack Ryan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jackdixonryan/burgermeister/issues"
+  },
+  "homepage": "https://github.com/jackdixonryan/burgermeister#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "mysql": "^2.16.0"
+  }
+}
