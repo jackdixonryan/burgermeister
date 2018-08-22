@@ -9,11 +9,12 @@ const orm = {
             cb(data);
         });
     },
-    addBurger: (burgerName) => {
+    addBurger: (burgerName, cb) => {
         let query = 'INSERT INTO burgers (burger_name, devoured) VALUES (?, 0)';
         connection.query(query, [burgerName], (err, data) => {
             if (err) throw err;
             console.log('Sucessfully Posted.');
+            cb(data);
         });
     },
     devour: (burgerName, cb) => {

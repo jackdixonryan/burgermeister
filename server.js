@@ -49,9 +49,12 @@ app.put('/api/burgers', (req, res) => {
     });
 });
 
-//passing false/true in is not a problem, so setting them must not be a problem either, 
-
-//=====================================================================
+app.post('/api/burgers', (req, res) => {
+    console.log(req.body);
+    orm.addBurger(req.body.name, (data) => {
+        console.log('success!');
+    })
+})
 
 app.listen(PORT, () => {
     console.log("Listening on port " + PORT);

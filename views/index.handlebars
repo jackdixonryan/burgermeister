@@ -1,3 +1,14 @@
+<h1>New</h1>
+
+<form id='newEntry'>
+    <label for='name'>Enter the burger's name: </label>
+    <input name='name'>
+    <button id='submitNew'>
+        <i class='fas fa-fire'></i>
+        MAKE THE BURGER
+    </button>
+</form>
+
 
 <h1>Uneaten</h1>
 <ul>
@@ -5,7 +16,10 @@
     <li>
         <p>{{this.burger_name}}</p>
         <form class='submit' data-bool='{{this.burger_name}}' >
-        <button class='eat' type = 'submit' data-bool='{{this.burger_name}}'>EAT ME</button>
+        <button class='eat' type = 'submit' data-bool='{{this.burger_name}}'>
+            <i class='fas fa-utensils'></i>
+            EAT ME
+        </button>
         </form>
     </li>
     {{/each}}
@@ -29,5 +43,11 @@
         }).done(function(msg){
             console.log('DATA SAVED: ' + msg);
         })
+    });
+
+    $('#newEntry').on('submit', function(event){
+        $.post('/api/burgers', $('#newEntry').serialize(), function(data, status){
+            console.log('DATA:', data, "STATUS:", status);
+        }); 
     });
 </script>
