@@ -7,7 +7,7 @@
             <form id='newEntry' class='col s12' style='width:70%; margin-right: 15%; margin-left: 15%;'>
                 <div class='row'>
                     <div class='input-field col s12'>
-                        <input name='name' id='name' data-length='50' type='text' style='width: 100%;' maxlength='50'>
+                        <input name='name' id='name' data-length='50' type='text' style='width: 100%;' maxlength='50' autocomplete="off">
                         <label for='name'>Enter the burger's name: </label>
                         <button id='submitNew' class='waves-effect waves-light btn purple darken-1'>
                             <i class='fas fa-fire'></i>
@@ -46,8 +46,16 @@
 </main>
 
 <script>
+    $(window).scroll(function(){
+        sessionStorage.scrollTop = $(this).scrollTop();
+    });
+
+
     $(document).ready(function() {
         $('input#name').characterCounter();
+        if (sessionStorage.scrollTop != 'undefined'){
+            $(window).scrollTop(sessionStorage.scrollTop);
+        }
     });
 
    $('.submit').on('submit', function(){
