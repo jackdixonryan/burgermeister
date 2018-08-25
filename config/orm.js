@@ -10,7 +10,7 @@ const orm = {
         });
     },
     addBurger: (burgerName, cb) => {
-        let query = 'INSERT INTO burgers (burger_name, devoured) VALUES (?, 0)';
+        let query = 'INSERT INTO BURGERS (burger_name, devoured) VALUES (?, 0)';
         connection.query(query, [burgerName], (err, data) => {
             if (err) throw err;
             console.log('Sucessfully Posted.');
@@ -18,7 +18,7 @@ const orm = {
         });
     },
     devour: (burgerName, cb) => {
-        let query = 'UPDATE burgers SET devoured = 1 WHERE burger_name = ?';
+        let query = 'UPDATE BURGERS SET devoured = 1 WHERE burger_name = ?';
         connection.query(query, [burgerName], (err, data) => {
             if (err) throw err;
             console.log(burgerName, 'has been updated to devoured.');
